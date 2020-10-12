@@ -1,6 +1,6 @@
 ---
 title: '"Infinity resolution" with Waifu2x and Potrace'
-date: 2020-10-12T21:12:53.444Z
+date: 2020-10-12T21:17:57.128Z
 author: Jeremy Karlsson
 summary: Running a bad JPEG of a wood cut from 1555 through Waifu2x and Potrace
   for Infinity Resolution!
