@@ -29,10 +29,12 @@ Ran the waifu2x result in a [JS port of Potrace](http://kilobtye.github.io/potra
 
 ![SVG version of the waifu2x generated image](/static/img/potrace.svg)
 
-[Open in new tab](https://dret.jeremy.se/waifu2x-potrace/potrace.svg)
+[Open in new tab](/static/img/potrace.svg)
 
 ## After SVGOMG optimization (218 KB)
 
 [SVGOMG](https://jakearchibald.github.io/svgomg/).
 
-![Optimized SVG version of the waifu2x generated image](https://dret.jeremy.se/waifu2x-potrace/final.svg)[Open in new tab](/static/img/final.svg)
+![Optimized SVG version of the waifu2x generated image](/static/img/final.svg)
+
+[Open in new tab](/static/img/final.svg)
