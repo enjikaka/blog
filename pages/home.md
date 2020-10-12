@@ -1,20 +1,25 @@
 ---
 layout: layouts/home.njk
-title: Home
-date: 2016-01-01T00:00:00.000Z
+title: About me
+date: 2020-10-12T21:10:53.137Z
 permalink: /
 eleventyNavigation:
   key: Home
   order: 0
 ---
-# Welcome
+I'm a web developer from Värmland in Sweden. I'm both norwegian 🇳🇴 and swedish 🇸🇪, and quite fitting I work in Oslo.
 
-This is a template for building a simple blog website with the [Eleventy static site generator](https://www.11ty.io), with deployment to [Netlify](https://www.netlify.com).
+I mostly program modern web applications these days. Heavy JavaScript kind of stuffs. I also do some golang occationally and have previously done a few thingies in Java, for example [plugins for Minecraft/Bukkit](https://minecraft.jeremy.se/).
 
-Includes [Netlify CMS](https://www.netlifycms.org) for WYSIWYG content editing, and [Netlify Forms](https://www.netlify.com/docs/form-handling) for processing your site's form data.
+Nature, music, history (mostly scandinavian), genealogy and etnobotanics are fields I find very interesting.
 
-For more info on installation and usage, view the [project repo]({{ pkg.repository.url }}) on GitHub.
+As I am norwegian I also got a domain for that country. [jeremy.no](https://jeremy.no/)
 
-Or click the button below to deploy your own copy of this project to Netlify.
+## Here's me on some social media:
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danurbanowicz/eleventy-netlify-boilerplate&stack=cms)
+* [Twitter](https://twitter.com/enjikaka)
+* [Github](https://github.com/enjikaka)
+* [Medium](https://medium.com/@enjikaka)
+* [LastFM](https://www.last.fm/sv/user/enjikaka)
+* [mastodon.cloud](https://mastodon.cloud/@karlsson)
+* [Linkedin](https://www.linkedin.com/in/enjikaka)
