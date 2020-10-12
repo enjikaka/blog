@@ -1,27 +1,38 @@
 ---
-title: This is my first post
-date: 2015-01-01T00:00:00.000Z
-author: John Appleseed
-summary: Why contemplating our mortality can be a powerful catalyst for change
+title: '"Infinity resolution" with Waifu2x and Potrace'
+date: 2020-10-12T21:17:57.128Z
+author: Jeremy Karlsson
+summary: Running a bad JPEG of a wood cut from 1555 through Waifu2x and Potrace
+  for Infinity Resolution!
 tags:
   - tech
-  - environment
-  - politics
-  - sport
 ---
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+Woodcut from *[A Description of the Northern Peoples](https://en.wikipedia.org/wiki/A_Description_of_the_Northern_Peoples)*
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
+I thought this might help me in [digitalizing the book](https://nordiskafolken.se/), for getting the images to a better format!
 
-## Section Header
+![Meme](https://dret.jeremy.se/waifu2x-potrace/meme.jpg)
 
-Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
+## Original JPG (512x236, 56 KB)
 
-``` text/2-3
-// this is a command
-function myCommand() {
-	let counter = 0;
-	counter++;
-}
-```
-Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+![Original JPEG image of wood cut](https://dret.jeremy.se/waifu2x-potrace/original.jpeg)
+
+## After Waifu2x (1024x472, 426 KB)
+
+Ran the original jpeg on [waifu2x-tfjs](https://highcwu.github.io/waifu2x-tfjs/) with 2x res.
+
+![PNG image after running thourgh the Waifu2x software](https://dret.jeremy.se/waifu2x-potrace/waifu2x.png)
+
+## After Potrace (409 KB)
+
+Ran the waifu2x result in a [JS port of Potrace](http://kilobtye.github.io/potrace/).
+
+![SVG version of the waifu2x generated image](/static/img/potrace.svg)
+
+[Open in new tab](https://dret.jeremy.se/waifu2x-potrace/potrace.svg)
+
+## After SVGOMG optimization (218 KB)
+
+[SVGOMG](https://jakearchibald.github.io/svgomg/).
+
+![Optimized SVG version of the waifu2x generated image](https://dret.jeremy.se/waifu2x-potrace/final.svg)[Open in new tab](/static/img/final.svg)
