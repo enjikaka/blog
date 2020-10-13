@@ -3,8 +3,8 @@
 	--secondary: #ddd;
 	--background: #fefefe;
 	--gr: 1.61803398875;
-	--gr-rem: var(--gr) * 1rem;
-	--gr-em: var(--gr) * 1em;
+	--gr-rem: calc(var(--gr) * 1rem);
+	--gr-em: calc(var(--gr) * 1em);
 }
 
 *, *:before, *:after {
@@ -170,4 +170,32 @@ a[rel="tag"]:last-child {
 	:root {
 		font-size: 1.1rem;
 	}
+}
+
+footer ul {
+	list-style: none;
+	padding: 0;
+	background-color: #f4f4f4;
+	border-radius: calc(var(--gr-rem) / 4);
+	padding: calc(var(--gr-rem) / 4);
+}
+
+footer ul li {
+	display: contents;
+}
+
+footer ul a {
+	display: block;
+	background-color: #f4f4f4;
+	border-radius: calc(var(--gr-rem) / 4);
+	padding: calc(var(--gr-rem) / 4);
+	transition: background-color 200ms ease;
+}
+
+footer ul a:hover {
+	background-color: #e4e4e4;
+}
+
+footer ul li:first-child {
+	margin-left: 0;
 }

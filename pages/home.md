@@ -7,19 +7,8 @@ eleventyNavigation:
   key: Home
   order: 0
 ---
-I'm a web developer from Värmland in Sweden. I'm both norwegian 🇳🇴 and swedish 🇸🇪, and quite fitting I work in Oslo.
+I'm a web developer from Värmland in Sweden. I'm both norwegian 🇳🇴 and swedish 🇸🇪, and quite fitting I work for a norwegian company.
 
-I mostly program modern web applications these days. Heavy JavaScript kind of stuffs. I also do some golang occationally and have previously done a few thingies in Java, for example [plugins for Minecraft/Bukkit](https://minecraft.jeremy.se/).
+I mostly program modern web applications. Heavy JavaScript kind of stuffs. Some examples are [nightcore.app](https://nightcore.app), [podd.app](https://podd.app) and [plypp.net](https://plypp.net).
 
-Nature, music, history (mostly scandinavian), genealogy and etnobotanics are fields I find very interesting.
-
-As I am norwegian I also got a domain for that country. [jeremy.no](https://jeremy.no/)
-
-## Here's me on some social media:
-
-* [Twitter](https://twitter.com/enjikaka)
-* [Github](https://github.com/enjikaka)
-* [Medium](https://medium.com/@enjikaka)
-* [LastFM](https://www.last.fm/sv/user/enjikaka)
-* [mastodon.cloud](https://mastodon.cloud/@karlsson)
-* [Linkedin](https://www.linkedin.com/in/enjikaka)
+Nature, music, history (mostly scandinavian), genealogy and ethnobotanics are fields I find very interesting.
