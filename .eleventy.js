@@ -89,6 +89,12 @@ module.exports = function(eleventyConfig) {
     .use(markdownItAnchor, opts)
   );
 
+  eleventyConfig.addFilter('bookFilter', function(collection, shelf) {
+    if (!shelf) return collection;
+    const filtered = collection.filter(item => item.data.shelf == shelf)
+    return filtered;
+  });
+
   return {
     templateFormats: ["md", "njk", "html", "liquid"],
 

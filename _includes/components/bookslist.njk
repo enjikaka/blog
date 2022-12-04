@@ -1,5 +1,14 @@
 <section>
-	{% for post in bookslist | reverse %}
-		<kb-book isbn="{{ post.data.isbn }}"></kb-book>
+	<h2>Reading</h2>
+	{% for book in bookslist | bookFilter('reading') %}
+		<kb-book isbn="{{ book.data.isbn }}"></kb-book>
+	{% endfor %}
+	<h2>To read</h2>
+	{% for book in bookslist | bookFilter('to read') %}
+		<kb-book isbn="{{ book.data.isbn }}"></kb-book>
+	{% endfor %}
+	<h2>Read</h2>
+	{% for book in bookslist | bookFilter('read') %}
+		<kb-book isbn="{{ book.data.isbn }}"></kb-book>
 	{% endfor %}
 </section>
