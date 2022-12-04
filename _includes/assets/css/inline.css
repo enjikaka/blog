@@ -199,3 +199,11 @@ footer ul a:hover {
 footer ul li:first-child {
 	margin-left: 0;
 }
+
+.books-list {
+	display: flex;
+	flex-flow: row nowrap;
+	overflow-y: none;
+	overflow-x: auto;
+	height: auto;
+}
