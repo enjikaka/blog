@@ -62,6 +62,7 @@ footer {
 
 main {
 	padding-bottom: var(--gr-em);
+	width: 100%;
 }
 
 main :first-child,
@@ -206,4 +207,5 @@ footer ul li:first-child {
 	overflow-y: none;
 	overflow-x: auto;
 	height: auto;
+	width: 100%;
 }
