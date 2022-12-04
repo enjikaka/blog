@@ -39,12 +39,13 @@ registerFunctionComponent(async function KbBook ({ isbn }) {
     img {
       width: 64px;
     }
-    strong,
-    span {
+    strong {
       text-align: center;
-    }
-    small {
-      font-size: 8pt;
+      hyphens: auto;
+      width: 80%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 78px;
     }
   `;
 
