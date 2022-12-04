@@ -8,6 +8,9 @@
     "watch": "npx @11ty/eleventy --watch",
     "debug": "DEBUG=* npx @11ty/eleventy"
   },
+  "engines": {
+    "node": "16.15.1"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate"
