@@ -1,0 +1,5 @@
+<section>
+	{% for post in bookslist | reverse %}
+		<kb-book isbn="{{ post.data.isbn }}"></kb-book>
+	{% endfor %}
+</section>
