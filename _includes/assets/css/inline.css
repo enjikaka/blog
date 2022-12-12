@@ -23,15 +23,21 @@ strong, h1, h2 {
 	font-variation-settings: "MONO" .2,"CASL" 0,"wght" 600,"slnt" 0,"CRSV" 0;
 }
 
+html,
 body {
-	display: grid;
-	height: 100vh;
-	grid-template-rows: auto 1fr auto;
+	height: 100%;
+}
+
+body {
 	background-color: var(--background);
+	max-width: 800px;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: column nowrap;
 }
 
 main {
-	max-width: 37.5em;
+	flex: 1;
 }
 
 p,
