@@ -14,16 +14,16 @@ registerFunctionComponent(async function KbBook ({ isbn }) {
   const { html, css, postRender, $ } = this;
 
   html`
-    <a target="_blank">
-      <figure>
-        <img alt="Book cover" />
-      </figure>
-      <strong></strong>
-    </a>
+    <figure>
+      <slot name="image"></slot>
+    </figure>
+    <strong>
+      <slot name="name"></slot>
+    </strong>
   `;
 
   css`
-    a {
+    :host {
       display: flex;
       flex-flow: column nowrap;
       width: 128px;
@@ -36,9 +36,6 @@ registerFunctionComponent(async function KbBook ({ isbn }) {
       margin: 0;
       margin-bottom: 0.5em;
     }
-    img {
-      width: 64px;
-    }
     strong {
       text-align: center;
       hyphens: auto;
@@ -48,17 +45,4 @@ registerFunctionComponent(async function KbBook ({ isbn }) {
       height: 78px;
     }
   `;
-
-  postRender(async () => {
-    const imgEl = $('img');
-    const anchorEl = $('a');
-    const strongEl = $('strong');
-
-    const response = await fetch('https://proud-frog-82.deno.dev/' + isbn);
-    const { title, image, identifier } = await response.json();
-
-    imgEl.src = image.record;
-    strongEl.textContent = title;
-    anchorEl.href = identifier;
-  });
 }, { name: 'kb-book' });

@@ -208,4 +208,11 @@ footer ul li:first-child {
 	overflow-x: auto;
 	height: auto;
 	width: 100%;
+	align-items: center;
+	gap: 1rem;
+}
+
+.books-list a {
+	text-decoration: none;
+	color: currentColor;
 }

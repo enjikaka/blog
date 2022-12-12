@@ -1,11 +1,78 @@
 const { DateTime } = require("luxon");
 const CleanCSS = require("clean-css");
-const UglifyJS = require("uglify-es");
+const UglifyJS = require("uglify-js");
 const htmlmin = require("html-minifier");
 const slugify = require("slugify");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const Image = require("@11ty/eleventy-img");
+const EleventyFetch = require("@11ty/eleventy-fetch");
+
+async function isbnImageShortcode(isbn) {
+  let res;
+
+  try {
+    res = await EleventyFetch('https://proud-frog-82.deno.dev/' + isbn, {
+      duration: "1d",
+      type: "json"
+    });
+  } catch (e) {
+    console.log('Could not fetch ' + isbn);
+    return '';
+  }
+
+  if (!res || !res.image.orginal) {
+    console.log('Not a good response for ' + isbn);
+    return '';
+  }
+
+  const src = res.image.orginal;
+  const options = {
+    widths: [128, 128*1.5, 128*2],
+    formats: ['avif', 'jpeg'],
+    cacheOptions: {
+      // if a remote image URL, this is the amount of time before it fetches a fresh copy
+      duration: "1y",
+      // project-relative path to the cache directory
+      directory: ".cache",
+      removeUrlQueryParams: false,
+    }
+  };
+
+  let metadata;
+
+  try {
+    metadata = await Image(src, options);
+  } catch (e) {
+    return `
+      <a href="${res.identifier}">
+        <kb-book>
+          <strong slot="name">${res.title}</strong>
+        </kb-book>
+      </a>
+    `;
+  }
+
+  const imageAttributes = {
+    alt: '',
+    sizes: '128px',
+    loading: 'lazy',
+    decoding: 'async'
+  };
+
+  return `
+    <a href="${res.identifier}">
+      <kb-book>
+        ${Image.generateHTML(metadata, imageAttributes).replace('<picture>', '<picture slot="image">')}
+        <strong slot="name">${res.title}</strong>
+      </kb-book>
+    </a>
+  `;
+}
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addNunjucksAsyncShortcode("isbnImage", isbnImageShortcode);
+  eleventyConfig.addLiquidShortcode("isbnImage", isbnImageShortcode);
+  eleventyConfig.addJavaScriptFunction("isbnImage", isbnImageShortcode);
 
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
@@ -69,7 +136,7 @@ module.exports = function(eleventyConfig) {
 
   // Don't process folders with static assets e.g. images
   eleventyConfig.addPassthroughCopy("favicon.ico");
-  eleventyConfig.addPassthroughCopy("static/img");
+  eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("_includes/assets/");
 
