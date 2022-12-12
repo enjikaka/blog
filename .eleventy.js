@@ -53,7 +53,8 @@ async function isbnImageShortcode(isbn) {
   }
 
   const imageAttributes = {
-    alt: '',
+    alt: res.title,
+    title: res.title,
     sizes: '128px',
     loading: 'lazy',
     decoding: 'async'
@@ -63,7 +64,6 @@ async function isbnImageShortcode(isbn) {
     <a href="${res.identifier}">
       <kb-book>
         ${Image.generateHTML(metadata, imageAttributes).replace('<picture>', '<picture slot="image">')}
-        <strong slot="name">${res.title}</strong>
       </kb-book>
     </a>
   `;
