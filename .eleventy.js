@@ -10,7 +10,8 @@ const EleventyFetch = require("@11ty/eleventy-fetch");
 async function imageShortcode(src, alt, size) {
   let metadata = await Image(src, {
     widths: [size*1, size*1.5, size*2],
-    formats: ["avif", "webp"]
+    formats: ["avif", "webp"],
+    outputDir: "./_site/img",
   });
 
   let imageAttributes = {
@@ -52,7 +53,8 @@ async function isbnImageShortcode(isbn) {
       // project-relative path to the cache directory
       directory: ".cache",
       removeUrlQueryParams: false,
-    }
+    },
+    outputDir: "./_site/img",
   };
 
   let metadata;
@@ -157,7 +159,6 @@ module.exports = function(eleventyConfig) {
 
   // Don't process folders with static assets e.g. images
   eleventyConfig.addPassthroughCopy("favicon.ico");
-  eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("static/img");
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("_includes/assets/");
