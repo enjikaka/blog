@@ -2,6 +2,15 @@
   publish = "_site"
   command = "eleventy"
 
+[[plugins]]
+package = "netlify-plugin-cache"
+
+  [plugins.inputs]
+  paths = [
+    "_site/img", # Eleventy Image Disk Cache
+    ".cache" # Remote Asset Cache
+  ]
+
 # REDIRECT and HEADERS examples
 
 # Redirect rule example
