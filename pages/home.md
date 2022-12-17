@@ -4,7 +4,7 @@ title: About me
 date: 2020-10-12T21:10:53.137Z
 permalink: /
 eleventyNavigation:
-  key: Home
+  key: About
   order: 0
 ---
 I'm a web developer from Värmland in Sweden. I'm both norwegian 🇳🇴 and swedish 🇸🇪. I work for the norwegian based music streming company [TIDAL](https://tidal.com) and also run businesses on the side. Namely [Glatek](https://glatek.se) for IT and [Barlingshult Småbruk](https://barlingshult.se) for farming.

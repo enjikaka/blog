@@ -7,6 +7,23 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const Image = require("@11ty/eleventy-img");
 const EleventyFetch = require("@11ty/eleventy-fetch");
 
+async function imageShortcode(src, alt, size) {
+  let metadata = await Image(src, {
+    widths: [size*1, size*1.5, size*2],
+    formats: ["avif", "webp"]
+  });
+
+  let imageAttributes = {
+    alt,
+    sizes: size + 'px',
+    loading: "lazy",
+    decoding: "async",
+  };
+
+  // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
+  return Image.generateHTML(metadata, imageAttributes);
+}
+
 async function isbnImageShortcode(isbn) {
   let res;
 
@@ -28,7 +45,7 @@ async function isbnImageShortcode(isbn) {
   const src = res.image.orginal;
   const options = {
     widths: [128, 128*1.5, 128*2],
-    formats: ['avif', 'jpeg'],
+    formats: ['avif', 'webp'],
     cacheOptions: {
       // if a remote image URL, this is the amount of time before it fetches a fresh copy
       duration: "1y",
@@ -70,6 +87,10 @@ async function isbnImageShortcode(isbn) {
 }
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+  eleventyConfig.addLiquidShortcode("image", imageShortcode);
+  eleventyConfig.addJavaScriptFunction("image", imageShortcode);
+
   eleventyConfig.addNunjucksAsyncShortcode("isbnImage", isbnImageShortcode);
   eleventyConfig.addLiquidShortcode("isbnImage", isbnImageShortcode);
   eleventyConfig.addJavaScriptFunction("isbnImage", isbnImageShortcode);
@@ -137,6 +158,7 @@ module.exports = function(eleventyConfig) {
   // Don't process folders with static assets e.g. images
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("img");
+  eleventyConfig.addPassthroughCopy("static/img");
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("_includes/assets/");
 

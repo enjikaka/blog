@@ -1,23 +1,26 @@
 <!doctype html>
 <html {% if section %} data-current="{{ section }}"{% endif %} lang="en">
-
 	{% include "components/head.njk" %}
-
 	<body>
-
 		<header>
+			{% image "static/img/me.jpg", "Jeremy Karlsson", "128" %}
 			<em>
 				<a href="{{ '/' | url }}">{{ metadata.title }}</a>
 			</em>
 			{% include "components/nav.njk" %}
 		</header>
-
 		<main>
 			{{ layoutContent | safe }}
 		</main>
-
 		{% include "components/footer.njk" %}
-
+		<svg>
+			<filter id='noiseFilter'>
+				<feTurbulence
+					type='fractalNoise'
+					baseFrequency='6.29'
+					numOctaves='6'
+					stitchTiles='stitch'/>
+			</filter>
+		</svg>
 	</body>
-
 </html>
