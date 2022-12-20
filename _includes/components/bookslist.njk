@@ -4,8 +4,8 @@
 <section>
 	<h2>Reading</h2>
 	<div class="books-list">
-		{% if readlingList.length > 0 %}
-			{% for book in readlingList %}
+		{% if readingList.length > 0 %}
+			{% for book in readingList %}
 				{% isbnImage book.data.isbn %}
 			{% endfor %}
 		{% else %}

@@ -26,6 +26,7 @@ async function imageShortcode(src, alt, size) {
 }
 
 async function isbnImageShortcode(isbn) {
+  console.debug('Generating image shortcode for ISBN', isbn);
   let res;
 
   try {
@@ -62,6 +63,8 @@ async function isbnImageShortcode(isbn) {
   try {
     metadata = await Image(src, options);
   } catch (e) {
+    return '';
+    /*
     return `
       <a href="${res.identifier}">
         <kb-book>
@@ -69,6 +72,7 @@ async function isbnImageShortcode(isbn) {
         </kb-book>
       </a>
     `;
+    */
   }
 
   const imageAttributes = {
@@ -78,6 +82,8 @@ async function isbnImageShortcode(isbn) {
     loading: 'lazy',
     decoding: 'async'
   };
+
+  console.debug('Generation complete:', isbn);
 
   return `
     <a href="${res.identifier}">
