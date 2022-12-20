@@ -38,12 +38,12 @@ async function isbnImageShortcode(isbn) {
     return '';
   }
 
-  if (!res || !res.image.orginal) {
+  if (!res || !res.image) {
     console.log('Not a good response for ' + isbn);
     return '';
   }
 
-  const src = res.image.orginal;
+  const src = res.image;
   const options = {
     widths: [128, 128*1.5, 128*2],
     formats: ['avif', 'webp'],
@@ -62,6 +62,10 @@ async function isbnImageShortcode(isbn) {
   try {
     metadata = await Image(src, options);
   } catch (e) {
+    if (!res.title) {
+      return '';
+    }
+
     return `
       <a href="${res.identifier}">
         <kb-book>
@@ -81,7 +85,7 @@ async function isbnImageShortcode(isbn) {
 
   return `
     <a href="${res.identifier}">
-      <kb-book>
+      <kb-book isbn="${isbn}">
         ${Image.generateHTML(metadata, imageAttributes).replace('<picture>', '<picture slot="image">')}
       </kb-book>
     </a>
