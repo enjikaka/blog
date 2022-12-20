@@ -48,7 +48,6 @@ async function isbnImageShortcode(isbn) {
   const options = {
     widths: [128, 128*1.5, 128*2],
     formats: ['avif', 'webp'],
-    /*
     cacheOptions: {
       // if a remote image URL, this is the amount of time before it fetches a fresh copy
       duration: "1y",
@@ -56,7 +55,6 @@ async function isbnImageShortcode(isbn) {
       directory: ".cache",
       removeUrlQueryParams: false,
     },
-    */
     outputDir: "./_site/img",
   };
 
