@@ -83,6 +83,18 @@ main {
 	flex: 1;
 }
 
+lastfm-status {
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translateY(-24px) translateX(calc(100% - 50px));
+	transition: transform 200ms ease;
+}
+
+lastfm-status:hover {
+	transform: none;
+}
+
 main,
 footer {
 	margin-block-start: var(--gr-em);

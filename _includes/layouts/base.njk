@@ -7,6 +7,9 @@
 			<em>
 				<a href="{{ '/' | url }}">{{ metadata.title }}</a>
 			</em>
+			<div class="box">
+				<lastfm-status></lastfm-status>
+			</div>
 			{% include "components/nav.njk" %}
 		</header>
 		<main>
@@ -22,5 +25,6 @@
 					stitchTiles='stitch'/>
 			</filter>
 		</svg>
+		<script type="module" src="/static/js/inline.js"></script>
 	</body>
 </html>

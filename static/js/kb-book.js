@@ -1,16 +1,6 @@
 import { registerFunctionComponent } from 'https://unpkg.com/webact';
 
-if (window.netlifyIdentity) {
-  window.netlifyIdentity.on("init", user => {
-    if (!user) {
-      window.netlifyIdentity.on("login", () => {
-        document.location.href = "/admin/";
-      });
-    }
-  });
-}
-
-registerFunctionComponent(async function KbBook ({ isbn }) {
+registerFunctionComponent(async function KbBook () {
   const { html, css, postRender, $ } = this;
 
   html`
