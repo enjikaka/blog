@@ -38,7 +38,7 @@ async function isbnImageShortcode(isbn) {
     return '';
   }
 
-  if (!res || !res.image) {
+  if (!res) {
     console.log('Not a good response for ' + isbn);
     return '';
   }
@@ -62,10 +62,6 @@ async function isbnImageShortcode(isbn) {
   try {
     metadata = await Image(src, options);
   } catch (e) {
-    if (!res.title) {
-      return '';
-    }
-
     return `
       <a href="${res.identifier}">
         <kb-book>
