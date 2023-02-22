@@ -1,4 +1,4 @@
-import { registerFunctionComponent } from 'https://unpkg.com/webact';
+import { registerFunctionComponent } from 'webact';
 
 registerFunctionComponent(async function KbBook () {
   const { html, css, postRender, $ } = this;
