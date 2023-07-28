@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+section: gallery
+permalink: /gallery/index.html
+eleventyImport:
+  collections: ["image"]
+---
+<h1>{{ title }}</h1>
+
+{{ layoutContent | safe }}
+
+{% set galleryImages = collections.image %}
+{% include "components/gallery.njk" %}

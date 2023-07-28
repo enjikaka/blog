@@ -5,5 +5,5 @@ date: 2022-12-04
 permalink: /bookshelf/index.html
 eleventyNavigation:
   key: Bookshelf
-  order: 2
+  order: 4
 ---

@@ -1,0 +1,7 @@
+{
+  "layout": "layouts/image.njk",
+  "permalink": "gallery/{{ title | slug }}/index.html",
+  "tags": [
+    "image"
+  ]
+}

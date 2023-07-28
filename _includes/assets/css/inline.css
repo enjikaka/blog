@@ -262,3 +262,25 @@ footer ul li:first-child {
 	text-decoration: none;
 	color: currentColor;
 }
+
+.gallery-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+}
+
+.gallery-grid figure {
+	margin: 0;
+	background-color: white;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	transition: box-shadow 150ms ease;
+}
+
+.gallery-grid figure:hover {
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-grid figcaption {
+	font-size: 0.8em;
+	padding: 0.4em 0.8em;
+}
