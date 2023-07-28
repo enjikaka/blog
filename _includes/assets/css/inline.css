@@ -297,6 +297,7 @@ figcaption {
 	padding: 0.4em 0.8em;
 }
 
+section + nav,
 figure + aside {
 	margin-top: 1rem;
 }
