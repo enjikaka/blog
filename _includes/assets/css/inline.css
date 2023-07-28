@@ -1,5 +1,6 @@
 :root {
 	--primary: rgb(45, 43, 17);
+	--light: rgb(176, 159, 109);
 	--secondary: #ddd;
 	--background: #fefefe;
 	--gr: 1.61803398875;
@@ -96,13 +97,12 @@ lastfm-status:hover {
 	transform: none;
 }
 
-main,
-footer {
+.block {
 	margin-block-start: var(--gr-em);
 	padding: var(--gr-em);
 	background-color: var(--bg-box);
-	box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-	border-radius: calc(var(--gr-em) / 2);
+	box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+	border-radius: calc(var(--gr-em) / 4);
 }
 
 main :first-child,
@@ -170,8 +170,7 @@ header nav li a[href]:not(:hover) {
 }
 
 header nav li a[data-current="current item"] {
-	background-color: var(--primary);
-	color: white !important;
+	background-color: var(--light);
 }
 
 /* Posts List */
@@ -180,6 +179,10 @@ article {
 	padding-bottom: var(--gr-em);
 	border-bottom: 1px solid #eee;
 	border-bottom: 1px solid var(--secondary);
+}
+
+main > h1 {
+	display: none;
 }
 
 main > section > article > * {
@@ -226,25 +229,17 @@ body > svg {
 	display: none;
 }
 
+footer {
+	font-size: 0.8rem;
+}
+
 footer ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
-}
-
-footer ul li {
-	display: contents;
-}
-
-footer ul a {
-	display: block;
-	border-radius: calc(var(--gr-rem) / 4);
-	padding: calc(var(--gr-rem) / 4);
-	transition: background-color 200ms ease;
-}
-
-footer ul li:first-child {
-	margin-left: 0;
+	display: flex;
+	flex-flow: row nowrap;
+	gap: 0.8em;
 }
 
 .books-list {
@@ -269,18 +264,19 @@ footer ul li:first-child {
 	gap: 1rem;
 }
 
-.gallery-grid figure {
+figure {
 	margin: 0;
 	background-color: white;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-	transition: box-shadow 150ms ease;
+	transition: box-shadow 250ms ease, transform 250ms ease;
 }
 
 .gallery-grid figure:hover {
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	transform: scale(1.03);
 }
 
-.gallery-grid figcaption {
+figcaption {
 	font-size: 0.8em;
 	padding: 0.4em 0.8em;
 }

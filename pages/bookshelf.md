@@ -1,9 +1,9 @@
 ---
 layout: layouts/bookshelf.njk
-title: Bookshelf
+title: Bokhylla
 date: 2022-12-04
-permalink: /bookshelf/index.html
+permalink: /bokhylla/index.html
 eleventyNavigation:
-  key: Bookshelf
+  key: Bokhylla
   order: 4
 ---

@@ -1,6 +1,6 @@
 {
   "layout": "layouts/book.njk",
-  "permalink": "books/{{ isbn | slug }}/index.html",
+  "permalink": "böcker/{{ isbn | slug }}/index.html",
   "tags": [
     "book"
   ]

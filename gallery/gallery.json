@@ -1,6 +1,6 @@
 {
   "layout": "layouts/image.njk",
-  "permalink": "gallery/{{ title | slug }}/index.html",
+  "permalink": "galleri/{{ title | slug }}/index.html",
   "tags": [
     "image"
   ]

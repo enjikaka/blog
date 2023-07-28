@@ -1,35 +1,35 @@
 {% set readingList = bookslist | bookFilter('reading') %}
 {% set toReadList = bookslist | bookFilter('to read') %}
 {% set readList = bookslist | bookFilter('read') %}
-<section>
-	<h2>Reading</h2>
+<section class="block">
+	<h2>Läser</h2>
 	<div class="books-list">
 		{% if readingList.length > 0 %}
 			{% for book in readingList %}
 				{% isbnImage book.data.isbn %}
 			{% endfor %}
 		{% else %}
-			Not reading anything at the moment.
+			Läser för närvarande ingen bok.
 		{% endif %}
 	</div>
-	<h2>To read</h2>
+	<h2>Att läsa</h2>
 	<div class="books-list">
 		{% if toReadList.length > 0 %}
 			{% for book in toReadList %}
 				{% isbnImage book.data.isbn %}
 			{% endfor %}
 		{% else %}
-			Nothing planned to be read at the moment.
+			Inget på läslistan just nu.
 		{% endif %}
 	</div>
-	<h2>Read</h2>
+	<h2>Läst</h2>
 	<div class="books-list">
 		{% if readList.length > 0 %}
 			{% for book in readList %}
 				{% isbnImage book.data.isbn %}
 			{% endfor %}
 		{% else %}
-			No books read.
+			Inga lästa böcker ännu.
 		{% endif %}
 	</div>
 </section>

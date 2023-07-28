@@ -1,14 +1,14 @@
 ---
 layout: layouts/home.njk
-title: About me
+title: Om mig
 date: 2020-10-12T21:10:53.137Z
 permalink: /
 eleventyNavigation:
-  key: About
+  key: Om mig
   order: 0
 ---
-I'm a web developer from Värmland in Sweden. I'm both norwegian 🇳🇴 and swedish 🇸🇪. I work for the norwegian based music streming company [TIDAL](https://tidal.com) and also run businesses on the side. Namely [Glatek](https://glatek.se) for IT and [Barlingshult Småbruk](https://barlingshult.se) for farming.
+<section class="block">
+  <p>Svorsk webbutvecklare från Värmland. Jobbar på strömningstjänsten <a href="https://tidal.com" target="_blank">TIDAL</a> men har även verksamheter på sidan av. Nämligen <a href="https://glatek.se" target="_blank">Glatek</a> för IT och <a href="https://barlingshult.se" target="_blank">Barlingshult Småbruk</a> för gården.</p>
 
-I mostly program modern web applications. Heavy JavaScript kind of stuffs. Some examples are [nightcore.app](https://nightcore.app), [podd.app](https://podd.app) and [plypp.net](https://plypp.net).
-
-Nature, music, history (mostly scandinavian), genealogy and ethnobotanics are fields I find very interesting.
+  Intresserar mig för bland annat beredskap, natur, musik, historia, släktforskning and etnobotanik.
+</section>
