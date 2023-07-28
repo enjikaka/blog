@@ -61,6 +61,10 @@ registerFunctionComponent(async function LastFMStatus () {
       text-decoration: none;
     }
 
+    a:hover {
+      text-decoration: underline;
+    }
+
     figure {
       margin: 0;
       font-size: calc(var(--gr-em) * 2);
