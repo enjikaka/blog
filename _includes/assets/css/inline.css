@@ -24,6 +24,7 @@ body {
 	background-image: linear-gradient(to bottom, rgb(57, 85, 104), rgb(88, 98, 100), rgb(176, 159, 109));
 	color: rgb(30, 15, 9);
 	background-attachment: fixed;
+	overflow-x: hidden;
 }
 
 body::before {
