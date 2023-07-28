@@ -2,8 +2,19 @@
 layout: layouts/base.njk
 section: gallery
 ---
-
-<figure>
-  {% image ""+imagePath, title, "700" %}
-  <figcaption>{{title}}</figcaption>
-</figure>
+<article>
+  <figure>
+    {% image ""+imagePath, title, "700" %}
+    <figcaption>{{title}}</figcaption>
+  </figure>
+  <aside>
+    {% if tags %}
+      {% for tag in tags %}
+        {%- if tag != "image" -%}
+          {% set tagUrl %}/album/{{ tag }}/{% endset %}
+          <a href="{{ tagUrl | url }}" rel="tag">{{ tag }}</a>
+        {%- endif -%}
+      {% endfor %}
+    {% endif %}
+  </asife>
+</article>

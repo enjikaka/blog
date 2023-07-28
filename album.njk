@@ -1,0 +1,20 @@
+---
+pagination:
+  data: collections
+  alias: album
+  size: 1
+permalink: "/album/{{ album }}/index.html"
+layout: layouts/base.njk
+eleventyComputed:
+  title: Album {{ album }}
+---
+<article>
+  <h1>Album {{ album }}</h1>
+
+  {% set galleryImages = collections[ album ] %}
+  {% include "components/gallery.njk" %}
+
+  <nav>
+    <a href="{{ '/galleri' | url }}">← Galleri-index</a>
+  </nav>
+</article>

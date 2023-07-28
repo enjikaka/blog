@@ -1,10 +1,14 @@
 <section class="gallery-grid">
   {% for galleryImage in galleryImages | reverse %}
     <a href="{{ galleryImage.url | url }}">
+      {% if galleryImage.data.imagePath|length %}
       <figure>
         {% image galleryImage.data.imagePath, galleryImage.data.title, "217" %}
         <figcaption>{{galleryImage.data.title}}</figcaption>
       </figure>
+      {% else %}
+      {{ galleryImage.data }}
+      {% endif %}
     </a>
   {% endfor %}
 </section>
