@@ -1,10 +1,10 @@
 ---
 layout: layouts/home.njk
-title: Om mig
+title: Om
 date: 2020-10-12T21:10:53.137Z
 permalink: /
 eleventyNavigation:
-  key: Om mig
+  key: Om
   order: 0
 ---
 <section class="block">
