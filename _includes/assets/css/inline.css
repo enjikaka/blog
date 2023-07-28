@@ -292,6 +292,11 @@ figure {
 	transform: scale(1.03);
 }
 
+.gallery-grid img {
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+}
+
 figcaption {
 	font-size: 0.8em;
 	padding: 0.4em 0.8em;
