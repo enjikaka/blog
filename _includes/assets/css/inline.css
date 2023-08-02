@@ -260,40 +260,31 @@ footer ul {
 
 .gallery-grid {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 1rem;
-}
-
-@media (max-width: 650px) {
-	.gallery-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 1rem;
-	}
-}
-
-@media (max-width: 400px) {
-	.gallery-grid {
-		display: grid;
-		grid-template-columns: repeat(1, 1fr);
-		gap: 1rem;
-	}
+	max-width: 515px;
+	grid-template-columns: repeat(auto-fill, 128px);
+	justify-content: center;
+	border-collapse: collapse;
+	grid-gap: 1px;
+	margin: 0 auto;
 }
 
 figure {
 	margin: 0;
 	background-color: white;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-	transition: box-shadow 250ms ease, transform 250ms ease;
+	transition: border-color 120ms ease;
 }
 
-.gallery-grid figure:hover {
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-	transform: scale(1.03);
+.gallery-grid figure {
+	width: 128px;
+	height: 128px;
+	contain: strict;
+	box-shadow: 0 0 0 1px black;
 }
 
 .gallery-grid img {
-	aspect-ratio: 1 / 1;
+	width: 100%;
+	height: 100%;
 	object-fit: cover;
 }
 
