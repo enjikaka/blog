@@ -10,4 +10,16 @@
     {% include "assets/css/inline.css" %}
   {% endset %}
   <style>{{ css | cssmin | safe }}</style>
+  <meta property="og:title" content="{{ title or renderData.title or metadata.title }}" />
+  <meta property="twitter:title" content="{{ title or renderData.title or metadata.title }}" />
+  <meta property="twitter:image:alt" content="{{ title or renderData.title or metadata.title }}" />
+  <meta property="og:url" content="{{ page.url }}" />
+  {% if imagePath %}
+    <meta property="twitter:image" content="{% imageMeta imagePath, 500 %}" />
+    <meta property="og:image" content="{% imageMeta imagePath, 500 %}" />
+    <meta property="og:image:secure_url" content="{% imageMeta imagePath, 500 %}" />
+  {% endif %}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@enjikaka" />
+  <meta name="twitter:creator" content="@enjikaka" />
 </head>

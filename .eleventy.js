@@ -6,6 +6,7 @@ const slugify = require("slugify");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const Image = require("@11ty/eleventy-img");
 const EleventyFetch = require("@11ty/eleventy-fetch");
+const metagen = require('eleventy-plugin-metagen');
 
 async function imageShortcode(src, alt, size) {
   let metadata = await Image(src, {
@@ -23,6 +24,16 @@ async function imageShortcode(src, alt, size) {
 
   // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
   return Image.generateHTML(metadata, imageAttributes);
+}
+
+async function imageShortcodeMeta(src, size) {
+  const metadata = await Image(src, {
+    widths: [size],
+    formats: ["jpeg"],
+    outputDir: "./_site/img",
+  });
+
+  return metadata.jpeg[0].url;
 }
 
 async function isbnImageShortcode(isbn) {
@@ -95,7 +106,10 @@ async function isbnImageShortcode(isbn) {
 }
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addPlugin(metagen);
+
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+  eleventyConfig.addNunjucksAsyncShortcode("imageMeta", imageShortcodeMeta);
   eleventyConfig.addNunjucksAsyncShortcode("isbnImage", isbnImageShortcode);
 
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
