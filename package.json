@@ -44,5 +44,8 @@
     "markdown-it": "^14.0.0",
     "markdown-it-anchor": "^8.6.7",
     "uglify-js": "^3.17.4"
+  },
+  "dependencies": {
+    "@std/http": "npm:@jsr/std__http@^1.0.8"
   }
 }
