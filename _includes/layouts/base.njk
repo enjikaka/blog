@@ -16,15 +16,6 @@
 			{{ content | safe }}
 		</main>
 		{% include "components/footer.njk" %}
-		<svg>
-			<filter id='noiseFilter'>
-				<feTurbulence
-					type='fractalNoise'
-					baseFrequency='6.29'
-					numOctaves='6'
-					stitchTiles='stitch'/>
-			</filter>
-		</svg>
 		<script type="importmap">
 		{
 			"imports": {

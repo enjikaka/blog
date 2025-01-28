@@ -24,22 +24,10 @@ body {
 }
 
 body {
-	background-image: linear-gradient(to bottom, rgb(57, 85, 104), rgb(88, 98, 100), rgb(176, 159, 109));
+	background-image: url('/static/img/bg.svg');
 	color: rgb(30, 15, 9);
 	background-attachment: fixed;
 	overflow-x: hidden;
-}
-
-body::before {
-	position: fixed;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	content: '';
-	z-index: -1;
-	filter: url(#noiseFilter);
-	opacity: 0.5;
 }
 
 strong,
