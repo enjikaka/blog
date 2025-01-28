@@ -7,7 +7,7 @@ eleventyImport:
 ---
 <h1>{{ title }}</h1>
 
-{{ layoutContent | safe }}
+{{ content | safe }}
 
 {% set galleryImages = collections.image %}
 {% include "components/gallery.njk" %}

@@ -6,7 +6,6 @@ const slugify = require("slugify");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const Image = require("@11ty/eleventy-img");
 const EleventyFetch = require("@11ty/eleventy-fetch");
-const metagen = require('eleventy-plugin-metagen');
 
 async function imageShortcode(src, alt, size) {
   let metadata = await Image(src, {
@@ -106,8 +105,6 @@ async function isbnImageShortcode(isbn) {
 }
 
 module.exports = function(eleventyConfig) {
-  eleventyConfig.addPlugin(metagen);
-
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
   eleventyConfig.addNunjucksAsyncShortcode("imageMeta", imageShortcodeMeta);
   eleventyConfig.addNunjucksAsyncShortcode("isbnImage", isbnImageShortcode);
@@ -202,7 +199,7 @@ module.exports = function(eleventyConfig) {
   });
 
   return {
-    templateFormats: ["md", "njk", "html", "liquid"],
+    templateFormats: ["md", "njk", "html"],
 
     // If your site lives in a different subdirectory, change this.
     // Leading or trailing slashes are all normalized away, so don’t worry about it.
