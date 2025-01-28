@@ -3,9 +3,11 @@
 	{% include "components/head.njk" %}
 	<body>
 		<header>
-			{% image "static/img/me.jpg", "Jeremy Karlsson", "128" %}
+			{% image "static/img/me.jpg",
+			"Jeremy Karlsson",
+			"128" %}
 			<em>
-				<a href="{{ '/' | url }}">{{ metadata.title }}</a>
+				{{ metadata.title }}
 			</em>
 			<div class="box">
 				<lastfm-status></lastfm-status>
@@ -16,14 +18,7 @@
 			{{ content | safe }}
 		</main>
 		{% include "components/footer.njk" %}
-		<script type="importmap">
-		{
-			"imports": {
-				"webact": "https://cdn.jsdelivr.net/npm/webact"
-			}
-        }
-		</script>
-		<script type="module" src="/static/js/last-fm-status.js"></script>
+		<script type="module" src="/static/js/lastfm-status.js"></script>
 		<script defer data-domain="jeremy.se" src="https://plausible.glate.ch/js/script.js"></script>
 	</body>
 </html>

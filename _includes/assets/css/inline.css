@@ -19,8 +19,10 @@ html,
 body {
 	padding: 0;
 	margin: 0;
-	font-family: "Recursive", sans-serif;
-	font-variation-settings: "MONO" .2, "CASL" 0, "wght" 350, "slnt" 0, "CRSV" 0;
+	font-family: "Fira Code", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: normal;
+	font-style: normal;
 }
 
 body {
@@ -30,11 +32,6 @@ body {
 	overflow-x: hidden;
 }
 
-strong,
-h1,
-h2 {
-	font-variation-settings: "MONO" .2, "CASL" 0, "wght" 600, "slnt" 0, "CRSV" 0;
-}
 
 body {
 	background-color: var(--background);
@@ -61,6 +58,13 @@ a[href]:not(:hover) {
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+header em {
+	font-family: "Special Elite", serif;
+	font-weight: 400;
+	font-style: normal;
+	color: black;
 }
 
 header picture {
@@ -93,7 +97,6 @@ lastfm-status:hover {
 	margin-block-start: var(--gr-em);
 	padding: var(--gr-em);
 	background-color: var(--bg-box);
-	box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
 	border-radius: calc(var(--gr-em) / 4);
 }
 

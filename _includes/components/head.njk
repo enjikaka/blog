@@ -2,22 +2,33 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title or renderData.title or metadata.title }}</title>
-  <link href="https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Special+Elite&display=swap" rel="stylesheet">
   <link rel="authorization_endpoint" href="https://indieauth.com/auth">
   {% set css %}
-    {% include "assets/css/inline.css" %}
+  {% include "assets/css/inline.css" %}
   {% endset %}
-  <style>{{ css | cssmin | safe }}</style>
-  <meta property="og:title" content="{{ title or renderData.title or metadata.title }}" />
-  <meta property="twitter:title" content="{{ title or renderData.title or metadata.title }}" />
-  <meta property="twitter:image:alt" content="{{ title or renderData.title or metadata.title }}" />
-  <meta property="og:url" content="{{ page.url }}" />
+  <style>
+    {{css | cssmin | safe}}
+  </style>
+  <meta property="og:title" content="{{ title or renderData.title or metadata.title }}"/>
+  <meta property="twitter:title" content="{{ title or renderData.title or metadata.title }}"/>
+  <meta property="twitter:image:alt" content="{{ title or renderData.title or metadata.title }}"/>
+  <meta property="og:url" content="{{ page.url }}"/>
   {% if imagePath %}
-    <meta property="twitter:image" content="{% imageMeta imagePath, 500 %}" />
-    <meta property="og:image" content="{% imageMeta imagePath, 500 %}" />
-    <meta property="og:image:secure_url" content="{% imageMeta imagePath, 500 %}" />
+    <meta property="twitter:image" content="{% imageMeta imagePath, 500 %}"/>
+    <meta property="og:image" content="{% imageMeta imagePath, 500 %}"/>
+    <meta property="og:image:secure_url" content="{% imageMeta imagePath, 500 %}"/>
   {% endif %}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@enjikaka" />
-  <meta name="twitter:creator" content="@enjikaka" />
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@enjikaka"/>
+  <meta name="twitter:creator" content="@enjikaka"/>
+  <script type="importmap">
+    {
+      "imports": {
+        "webact": "https://cdn.jsdelivr.net/npm/webact"
+      }
+    }
+  </script>
 </head>
