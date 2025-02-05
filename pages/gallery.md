@@ -1,9 +1,9 @@
 ---
 layout: layouts/gallery.njk
-title: Galleri
+title: Gallery
 date: 2023-07-28
 permalink: /galleri/index.html
 eleventyNavigation:
-  key: Galleri
+  key: Gallery
   order: 3
 ---
