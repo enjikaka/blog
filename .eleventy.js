@@ -6,10 +6,11 @@ const slugify = require("slugify");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const Image = require("@11ty/eleventy-img");
 const EleventyFetch = require("@11ty/eleventy-fetch");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 async function imageShortcode(src, alt, size) {
   let metadata = await Image(src, {
-    widths: [size*1, size*1.5, size*2],
+    widths: [size * 1, size * 1.5, size * 2],
     formats: ["avif", "webp"],
     outputDir: "./_site/img",
   });
@@ -56,7 +57,7 @@ async function isbnImageShortcode(isbn) {
 
   const src = res.image;
   const options = {
-    widths: [128, 128*1.5, 128*2],
+    widths: [128, 128 * 1.5, 128 * 2],
     formats: ['avif', 'webp'],
     cacheOptions: {
       // if a remote image URL, this is the amount of time before it fetches a fresh copy
@@ -104,13 +105,15 @@ async function isbnImageShortcode(isbn) {
   `;
 }
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
   eleventyConfig.addNunjucksAsyncShortcode("imageMeta", imageShortcodeMeta);
   eleventyConfig.addNunjucksAsyncShortcode("isbnImage", isbnImageShortcode);
 
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
+  eleventyConfig.addPlugin(syntaxHighlight);
 
   // Configuration API: use eleventyConfig.addLayoutAlias(from, to) to add
   // layout aliases! Say you have a bunch of existing content using
@@ -133,12 +136,12 @@ module.exports = function(eleventyConfig) {
   });
 
   // Minify CSS
-  eleventyConfig.addFilter("cssmin", function(code) {
+  eleventyConfig.addFilter("cssmin", function (code) {
     return new CleanCSS({}).minify(code).styles;
   });
 
   // Minify JS
-  eleventyConfig.addFilter("jsmin", function(code) {
+  eleventyConfig.addFilter("jsmin", function (code) {
     let minified = UglifyJS.minify(code);
     if (minified.error) {
       console.log("UglifyJS error: ", minified.error);
@@ -148,7 +151,7 @@ module.exports = function(eleventyConfig) {
   });
 
   // Minify HTML output
-  eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
+  eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
     if (outputPath.indexOf(".html") > -1) {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
@@ -161,7 +164,7 @@ module.exports = function(eleventyConfig) {
   });
 
   // Universal slug filter strips unsafe chars from URLs
-  eleventyConfig.addFilter("slugify", function(str) {
+  eleventyConfig.addFilter("slugify", function (str) {
     return slugify(str, {
       lower: true,
       replacement: "-",
@@ -192,7 +195,7 @@ module.exports = function(eleventyConfig) {
     .use(markdownItAnchor, opts)
   );
 
-  eleventyConfig.addFilter('bookFilter', function(collection, shelf) {
+  eleventyConfig.addFilter('bookFilter', function (collection, shelf) {
     if (!shelf) return collection;
     const filtered = collection.filter(item => item.data.shelf == shelf)
     return filtered;

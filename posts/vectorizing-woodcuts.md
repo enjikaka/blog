@@ -1,6 +1,6 @@
 ---
 title: 'Vectorizing woodcuts with Waifu2x and Potrace'
-date: 2020-10-12T21:17:57.128Z
+date: 2020-10-12
 author: Jeremy Karlsson
 summary: Running a bad JPEG of a wood cut from 1555 through Waifu2x and Potrace for Infinity Resolution!
 tags:
