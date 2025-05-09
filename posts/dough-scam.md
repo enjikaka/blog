@@ -4,7 +4,6 @@ date: 2025-05-09
 author: Jeremy Karlsson
 summary: Not refunding my order 
 ---
-# Dough Tech (monitor) is a scam
 
 ```
 Dough GmbH
