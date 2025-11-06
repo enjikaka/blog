@@ -7,7 +7,6 @@ tags:
   - javascript
   - react
 ---
-# React Service Worker Components, an experiment
 
 [React Server Components](https://react.dev/reference/rsc/server-components) are kind of hot off the press. How they work is, unless you dive into some [the RFC](https://github.com/reactjs/rfcs/blob/main/text/0188-server-components.md), still a bit unknown. Let's do a quick wrap up...
 

@@ -130,13 +130,19 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj).toFormat("dd LLL yyyy");
   });
 
-  eleventyConfig.addFilter("viewTransitionId", string => {
-    return 'image-' + new URL(string, 'http://example.com').pathname.split('/').filter(part => part.length > 0).pop().split('.')[0];
+  eleventyConfig.addFilter("imagePathToViewTransitionName", string => {
+    const url = new URL(string, 'http://example.com');
+
+    return 'image-' + url.pathname.split('/').filter(part => part.length > 0).pop().split('.')[0];
   });
 
   // Date formatting (machine readable)
   eleventyConfig.addFilter("machineDate", dateObj => {
     return dateObj.toISOString();
+  });
+
+  eleventyConfig.addFilter("shortISO", dateObj => {
+    return dateObj.toISOString().split('T')[0];
   });
 
   // Minify CSS

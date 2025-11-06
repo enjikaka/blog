@@ -151,11 +151,6 @@ main>h1 {
 	display: none;
 }
 
-main>section>article>* {
-	margin-top: 0;
-	margin-bottom: calc(var(--gr-em) / 2);
-}
-
 /* Post Tags */
 a[rel="tag"],
 a[rel="tag"]:visited {
@@ -198,6 +193,8 @@ body>svg {
 footer {
 	font-size: 0.8rem;
 	margin-top: var(--gr-em);
+	padding-top: var(--gr-em);
+	border-top: 1px solid var(--secondary);
 }
 
 footer ul {
@@ -277,4 +274,31 @@ figure {
 
 @view-transition {
 	navigation: auto;
+}
+
+.image-entry figure {
+	background-color: white;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-entry h1 {
+	margin-bottom: 0;
+}
+
+.postslist article {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	gap: calc(var(--gr-em) / 2);
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+}
+
+.postslist article h3 {
+	margin: 0;
+	flex: 1;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
