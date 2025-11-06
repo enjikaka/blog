@@ -2,7 +2,7 @@
   {% for galleryImage in galleryImages | reverse %}
     <a href="{{ galleryImage.url | url }}">
       {% if galleryImage.data.imagePath | length %}
-        <figure>
+        <figure style="view-transition-name: {{ galleryImage.data.imagePath | viewTransitionId }}">
           {% image galleryImage.data.imagePath,
           galleryImage.data.title,
           "128" %}

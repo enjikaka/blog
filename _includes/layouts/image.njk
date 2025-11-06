@@ -3,11 +3,10 @@ layout: layouts/base.njk
 section: gallery
 ---
 <article>
-  <figure>
+  <figure style="view-transition-name: {{ imagePath | viewTransitionId }}">
     {% image "" + imagePath,
     title,
     "700" %}
-    <figcaption>{{title}}</figcaption>
   </figure>
   <aside>
     {% if tags %}

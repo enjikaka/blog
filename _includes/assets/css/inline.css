@@ -197,6 +197,7 @@ body>svg {
 
 footer {
 	font-size: 0.8rem;
+	margin-top: var(--gr-em);
 }
 
 footer ul {
@@ -230,13 +231,8 @@ footer ul {
 	grid-template-columns: repeat(auto-fill, 128px);
 	justify-content: center;
 	border-collapse: collapse;
-	grid-gap: 1px;
+	grid-gap: calc(var(--gr-em) / 2);
 	margin: 0 auto;
-}
-
-article picture,
-.gallery-grid picture:active {
-	view-transition-name: gallery-image;
 }
 
 [data-current="post"] article h1,
@@ -246,16 +242,17 @@ article picture,
 
 figure {
 	margin: 0;
-	background-color: white;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-	transition: border-color 120ms ease;
+	display: block;
 }
 
 .gallery-grid figure {
-	width: 128px;
+	aspect-ratio: 1 / 1;
 	height: 128px;
-	contain: strict;
-	box-shadow: 0 0 0 1px black;
+}
+
+.gallery-grid picture  {
+	width: 100%;
+	height: 100%;
 }
 
 .gallery-grid img {
@@ -272,6 +269,10 @@ figcaption {
 section+nav,
 figure+aside {
 	margin-top: 1rem;
+}
+
+figure {
+	view-transition-name: attr(data-id);
 }
 
 @view-transition {
