@@ -5,7 +5,6 @@ registerFunctionComponent(
     const { html, css, postRender, $ } = this;
 
     html`
-      <div>Currently listening to</div>
       <div>
         <img />
         <div id="meta">
@@ -18,30 +17,10 @@ registerFunctionComponent(
     css`
       :host {
         display: none;
-        padding: calc(var(--gr-em) / 3);
-        background-color: var(--bg-box);
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-        border-bottom-left-radius: calc(var(--gr-em) / 2);
-        transition: padding 200ms ease;
-      }
-
-      :host(:hover) {
-        padding: calc(var(--gr-em) / 2);
       }
 
       :host(.scrobbling) {
         display: block;
-      }
-
-      :host > div:first-child {
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 200ms ease;
-        margin-block-end: calc(var(--gr-em) / 2);
-      }
-
-      :host(:hover) > div:first-child {
-        opacity: 1;
       }
 
       :host > div {

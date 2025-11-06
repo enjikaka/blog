@@ -1,12 +1,12 @@
 :root {
+	--border-color: ;
 	--primary: rgb(45, 43, 17);
 	--light: rgb(176, 159, 109);
-	--secondary: #ddd;
-	--background: #fefefe;
+	--secondary: oklch(0.9317 0.0046 78.3);
+	--background: oklch(0.9671 0.0041 91.45);
 	--gr: 1.61803398875;
 	--gr-rem: calc(var(--gr) * 1rem);
 	--gr-em: calc(var(--gr) * 1em);
-	--bg-box: rgba(254, 238, 218, 0.7);
 }
 
 *,
@@ -26,15 +26,10 @@ body {
 }
 
 body {
-	background-image: url('/static/img/bg.svg');
+	background-color: var(--background);
 	color: rgb(30, 15, 9);
 	background-attachment: fixed;
 	overflow-x: hidden;
-}
-
-
-body {
-	background-color: var(--background);
 	max-width: 800px;
 	margin: 0 auto;
 	padding: var(--gr-em);
@@ -51,7 +46,7 @@ a[href]:visited {
 	color: var(--primary);
 }
 
-a[href]:not(:hover) {
+a {
 	text-decoration: none;
 }
 
@@ -60,44 +55,51 @@ img {
 	height: auto;
 }
 
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.row {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	gap: calc(var(--gr-em) / 2);
+	overflow: hidden;
+}
+
+header {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: calc(var(--gr-em) / 2);
+	border-bottom: 1px solid var(--secondary);
+	margin-bottom: calc(var(--gr-em) / 2);
+	view-transition-name: app-header;
+}
+
 header em {
-	font-family: "Special Elite", serif;
-	font-weight: 400;
 	font-style: normal;
-	color: black;
+	font-weight: bold;
+	flex: 1;
 }
 
 header picture {
 	margin: 0 auto;
-	display: block;
-	border-radius: 50%;
-	width: 128px;
-	height: 128px;
 	overflow: hidden;
+	width: 96px;
+	height: 96px;
+}
+
+header picture img {
+	width: 100%;
+	height: 100%;
+	border-radius: calc(var(--gr-em) / 4);
 }
 
 main {
 	width: 100%;
 	flex: 1;
-}
-
-lastfm-status {
-	position: absolute;
-	top: 0;
-	right: 0;
-	transform: translateY(-24px) translateX(calc(100% - 50px));
-	transition: transform 200ms ease;
-}
-
-lastfm-status:hover {
-	transform: none;
-}
-
-.block {
-	margin-block-start: var(--gr-em);
-	padding: var(--gr-em);
-	background-color: var(--bg-box);
-	border-radius: calc(var(--gr-em) / 4);
 }
 
 main :first-child,
@@ -122,50 +124,19 @@ pre {
 	margin: calc(var(--gr-em) / 2) 0;
 }
 
-header {
-	margin-block-end: var(--gr-em);
-}
-
-/* Header Logo (style as h2) */
-header>em {
-	font-size: calc(var(--gr-rem) * 1);
-	margin: calc(var(--gr-em) / 2) 0;
-	font-weight: bold;
-	font-style: normal;
-}
-
-header em,
-header nav ul {
-	display: flex;
-	justify-content: center;
-}
-
-/* Header Nav */
-header nav ul {
-	padding: 0;
-	list-style: none;
-}
-
 header nav ul :first-child {
 	margin-left: 0;
-}
-
-header nav li {
-	display: inline-block;
-	margin: 0 .25em;
 }
 
 header nav li a {
 	padding: calc(var(--gr-em) / 4) calc(var(--gr-em) / 2);
 	border-radius: calc(var(--gr-em) / 4);
-}
-
-header nav li a[href]:not(:hover) {
-	text-decoration: none;
+	display: block;
 }
 
 header nav li a[data-current="current item"] {
-	background-color: var(--light);
+	text-decoration: underline;
+	border: 1px solid black;
 }
 
 /* Posts List */
@@ -263,6 +234,16 @@ footer ul {
 	margin: 0 auto;
 }
 
+article picture,
+.gallery-grid picture:active {
+	view-transition-name: gallery-image;
+}
+
+[data-current="post"] article h1,
+[data-current="blog"] article h3 a {
+	view-timeline-name: blog-title;
+}
+
 figure {
 	margin: 0;
 	background-color: white;
@@ -291,4 +272,8 @@ figcaption {
 section+nav,
 figure+aside {
 	margin-top: 1rem;
+}
+
+@view-transition {
+	navigation: auto;
 }
