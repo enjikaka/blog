@@ -2,12 +2,12 @@
 layout: layouts/base.njk
 section: gallery
 ---
-<article>
-  <figure>
+<article class="image-entry">
+  <figure style="view-transition-name: {{ imagePath | imagePathToViewTransitionName }}">
     {% image "" + imagePath,
     title,
     "700" %}
-    <figcaption>{{title}}</figcaption>
+    <figcaption>{{ title }}</figcaption>
   </figure>
   <aside>
     {% if tags %}

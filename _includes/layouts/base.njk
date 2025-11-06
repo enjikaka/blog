@@ -3,13 +3,13 @@
 	{% include "components/head.njk" %}
 	<body>
 		<header>
-			{% image "static/img/me.jpg",
-			"Jeremy Karlsson",
-			"128" %}
-			<em>
-				{{ metadata.title }}
-			</em>
-			<div class="box">
+			<div class="row">
+				{% image "static/img/me.jpg",
+				"Jeremy Karlsson",
+				"128" %}
+				<em>
+					{{ metadata.title }}
+				</em>
 				<lastfm-status></lastfm-status>
 			</div>
 			{% include "components/nav.njk" %}
