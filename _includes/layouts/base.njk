@@ -1,7 +1,15 @@
 <!doctype html>
 <html {% if section %} data-current="{{ section }}"{% endif %} lang="en">
 	{% include "components/head.njk" %}
-	<body>
+	{% set section_css %}
+	{% include "assets/css/section-" + section + ".css" ignore missing %}
+	{% endset %}
+	{% if section_css %}
+		<style>
+			{{section_css | cssmin | safe}}
+		</style>
+	{% endif %}
+	<body {% if section %}class="section-{{ section }}"{% endif %}>
 		<header>
 			<div class="row">
 				{% image "static/img/me.jpg",
