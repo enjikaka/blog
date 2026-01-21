@@ -5,13 +5,15 @@
     grid-template-columns: repeat(auto-fill, 128px);
     justify-content: center;
     border-collapse: collapse;
-    grid-gap: calc(var(--gr-em) / 2);
+    grid-gap: calc(var(--gr-em) / 4);
     margin: 0 auto;
   }
 
   .gallery-grid figure {
     aspect-ratio: 1 / 1;
     height: 128px;
+    border-radius: calc(var(--gr-em) / 4);
+    overflow: hidden;
   }
 
   .gallery-grid picture {

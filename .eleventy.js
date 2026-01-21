@@ -136,6 +136,10 @@ module.exports = function (eleventyConfig) {
     return 'image-' + url.pathname.split('/').filter(part => part.length > 0).pop().split('.')[0];
   });
 
+  eleventyConfig.addFilter("isCurrentOrUnder", (currentUrl, entryUrl) => {
+    return currentUrl == entryUrl || (entryUrl !== "/" && currentUrl.startsWith(entryUrl));
+  });
+
   // Date formatting (machine readable)
   eleventyConfig.addFilter("machineDate", dateObj => {
     return dateObj.toISOString();
