@@ -56,9 +56,10 @@ registerFunctionComponent(
     `;
 
     postRender(() => {
-      const eventSource = new EventSource(
-        "https://listen-in.deno.dev/enjikaka",
-      );
+      /** @type {EventSource | null}   */
+      let eventSource = null;
+
+      const $host = $();
 
       /** @type {HTMLImageElement} */
       const $img = $("img");
@@ -67,13 +68,17 @@ registerFunctionComponent(
       /** @type {HTMLSpanElement} */
       const $span = $("span");
 
-      eventSource.addEventListener("scrobble", (e) => {
-        const data = JSON.parse(e.data);
+      /** @type {string | null} */
+      let lastRenderedId = null;
 
-        if (!data) {
-          $().classList.remove("scrobbling");
-          return;
-        }
+      /**
+       * 
+       * @param {string} id 
+       * @param {{ image: { url: string }[], title: string, tidal: string, artist: string }} data 
+       * @returns 
+       */
+      const updateStatus = (id, data) => {
+        if (id === lastRenderedId) return;
 
         $img.src = data.image[0].url;
         $img.alt = data.title;
@@ -83,13 +88,36 @@ registerFunctionComponent(
 
         $span.textContent = data.artist;
 
-        requestAnimationFrame(() => {
-          $().classList.add("scrobbling");
+        $host.classList.add("scrobbling");
+        lastRenderedId = id;
+      };
 
-          $currentImg.replaceWith($newImg);
-          $currentAnchor.replaceWith($newImg);
-          $currentSpan.replaceWith($newImg);
-        });
+      const lastSSEMessage = sessionStorage.getItem("last-sse-message");
+
+      if (lastSSEMessage) {
+        console.log('Restoring last SSE message from sessionStorage:', lastSSEMessage);
+        const { id, data } = JSON.parse(lastSSEMessage);
+
+        updateStatus(id, data);
+      }
+
+      eventSource = new EventSource(
+        "https://listen-in.deno.dev/enjikaka",
+      )
+
+      eventSource.addEventListener("scrobble", (e) => {
+        const id = e.lastEventId;
+        const data = JSON.parse(e.data);
+
+        if (id === lastRenderedId) return;
+
+        if (!data) {
+          $host.classList.remove("scrobbling");
+          return;
+        }
+
+        sessionStorage.setItem("last-sse-message", JSON.stringify({ id, data }));
+        updateStatus(id, data);
       });
     });
   },
