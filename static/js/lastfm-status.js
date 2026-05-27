@@ -57,7 +57,7 @@ registerFunctionComponent(
 
     postRender(() => {
       const eventSource = new EventSource(
-        "https://listen-in.deno.dev/enjikaka",
+        "https://listen-in.vps.glatek.se/enjikaka",
       );
 
       /** @type {HTMLImageElement} */
