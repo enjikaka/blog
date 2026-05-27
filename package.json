@@ -10,7 +10,7 @@
     "start": "http-server _site -p 8081"
   },
   "engines": {
-    "node": "^20"
+    "node": "^26"
   },
   "repository": {
     "type": "git",
