@@ -191,6 +191,7 @@ body>svg {
 }
 
 footer {
+	view-transition-name: footer;
 	font-size: 0.8rem;
 	margin-top: var(--gr-em);
 	padding-top: var(--gr-em);
