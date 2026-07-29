@@ -7,7 +7,7 @@ ENV CI=1
 RUN npm ci
 RUN npm run build
 
-FROM denoland/deno:alpine-2.8.1 AS runtime
+FROM denoland/deno:alpine-2.9.4 AS runtime
 
 WORKDIR /usr/app
 
