@@ -7,12 +7,12 @@ ENV CI=1
 RUN npm ci
 RUN npm run build
 
-FROM denoland/deno:alpine-2.9.4 AS runtime
+FROM busybox:stable-musl AS runtime
 
-WORKDIR /usr/app
+WORKDIR /www
+COPY --from=builder /usr/src/app/_site .
+COPY httpd.conf /etc/httpd.conf
 
-RUN deno install --allow-net --allow-read --allow-sys --global jsr:@std/http/file-server
-COPY --from=builder /usr/src/app/_site ./_site
-
+USER 1000:1000
 EXPOSE 8000
-CMD ["file-server", "./_site", "--port", "8000"]
+CMD ["httpd", "-f", "-p", "8000", "-h", "/www"]
